@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>Mi amor</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('img/amar.png') no-repeat center center/cover;
+            font-family: 'Arial', sans-serif;
+        }
+    
+        h1 {
+            color: rgb(255, 252, 252); /* Color amarillo */
+            text-shadow: 0 0 10px rgb(18, 92, 251), 0 0 20px rgba(1, 5, 235, 0.8);
+            text-align: center;
+            font-size: 8vw;
+            opacity: 0; /* Inicialmente invisible */
+        }
+
+        h2 {
+            color: #ffffff; /* Color diferente */
+            font-size: 4vw;
+            margin-top: 20px;
+            animation: pulse 2s infinite; /* Pequeño efecto de pulsación */
+        }
+
+        button {
+            font-size: 3vw;
+            padding: 15px 30px;
+            margin-top: 30px;
+            border: none;
+            margin-left: 200px;
+            background-color: #f90542;
+            color: white;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="greetings">
+        <h1 id="heading">HOLA MI AMOR</h1>
+        <h2>Tengo un regalo para ti</h2>
+        <button onclick="window.location.href='rosas.html'">Ver regalo</button>
+    </div>
+
+    <script>
+        const heading = document.getElementById('heading');
+        const text = heading.textContent;
+        heading.textContent = ''; // Limpiar el contenido
+
+        let index = 0;
+
+        function typeLetter() {
+            if (index < text.length) {
+                heading.textContent += text[index++];
+                heading.style.opacity = 1; // Hacer visible
+                setTimeout(typeLetter, 150); // Tiempo entre letras
+            }
+        }
+
+        // Iniciar la animación al cargar la página
+        window.onload = typeLetter;
+    </script>
+    
+</body>
+</html>
+
